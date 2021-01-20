@@ -1,11 +1,12 @@
-
+{
     const result = {
         name: 12,
         population: 122,
         treasury: 555
     };
-let {name}=result;
-console.log(name);
+    let {name} = result;
+    console.log(name);
+}
 /*    let myVar = result.name;
     myVar = 55;
     let {population} = 26;

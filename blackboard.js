@@ -1,8 +1,12 @@
 let myObj={
     name: 'Pesho',
     age: '23',
-    'hair color' : 'brown'
+    'hair color' : 'brown',
+bark(){
+        return 'Wuf Wuf Wuf';
+}
 };
+console.log(myObj.bark());
 let x= myObj;
 let y=x;
 y.age=25;
