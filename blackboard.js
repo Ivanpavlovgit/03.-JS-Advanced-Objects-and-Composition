@@ -1,23 +1,21 @@
-let myObj={
-    name: 'Pesho',
-    age: '23',
-    'hair color' : 'brown',
-bark(){
-        return 'Wuf Wuf Wuf';
-}
+const company = {
+    employees: ['John', 'Jane', 'Sam', 'Suzanne'],
+    name: 'Quick Build',
 };
-console.log(myObj.bark());
-let x= myObj;
-let y=x;
-y.age=25;
-for (const myObjKey in myObj) {
-    console.log(`obj.${myObjKey}=${myObj[myObjKey]}`);
+const {employees: person} = company;
+console.log(person);//expects 'John'
+let s = JSON.stringify(company, null, 10);
+console.log(s);
+// Some Fancy Deep Copy Function //
+function deepCopy(target) {
+    if (Array.isArray(target)) {
+        return target.map(deepCopy);
+    } else if (typeof target == 'object') {
+        return [...Object.entries(target)]
+            .reduce((acc, [k, v]) => Object.assign(acc, {[k]: deepCopy(v)}), {});
+    } else {
+        return target;
+    }
 }
-const keys=Object.keys(myObj);
-let balues=Object.values(myObj);
-balues[1]=55;
-console.log(keys);
-console.log(balues);
-console.log(myObj.age);
-console.log(x.age);
-console.log(y.age);
+myCompany=deepCopy(company);
+console.log(myCompany);
