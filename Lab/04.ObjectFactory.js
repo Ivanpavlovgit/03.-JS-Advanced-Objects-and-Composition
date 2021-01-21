@@ -1,3 +1,18 @@
+function factory(library, orders) {
+    let result = [];
+//iterate over orders
+    for (const order of orders) {
+// copy order template;
+        const composed = Object.assign({}, order.template);
+// compose methods by parts list
+        for (let part of order.parts) {
+            composed[part] = library[part];
+        }
+        result.push(composed);
+    }
+    return result;
+}
+
 const library = {
     print: function () {
         console.log(`${this.name} is printing a page`);
